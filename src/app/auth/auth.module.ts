@@ -3,6 +3,8 @@ import { NgModule } from "@angular/core";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MaterialModule } from "../material.module";
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+
 import { LoginComponent } from "./login/login.component";
 import { SignupComponent } from "./signup/signup.component";
 
@@ -16,6 +18,7 @@ import { SignupComponent } from "./signup/signup.component";
     ReactiveFormsModule,
     MaterialModule,
     FlexLayoutModule,
+    AngularFireAuthModule,
   ],
   exports: []
 })
