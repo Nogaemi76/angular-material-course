@@ -31,11 +31,15 @@ export class TrainingService {
           }
         })
       }))
-      .subscribe((exercises: Exercise[]) => {
+      .subscribe({ next: (exercises: Exercise[]) => {
         this.uiService.loadingStateChanged.next(false);
         this.availableExercises = exercises;
         this.exercisesChanged.next([...this.availableExercises]);
-      }));
+      }, error: error => {
+        this.uiService.loadingStateChanged.next(false);
+        this.uiService.showSnackbar('Fetching exercises failed, please try again later', null, 3000);
+        this.exercisesChanged.next(null);
+      }}));
   }
 
   startExercise(selectedID: string) {
