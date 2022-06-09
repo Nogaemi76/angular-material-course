@@ -2,6 +2,8 @@ import { NgModule } from "@angular/core";
 
 import { SharedModule } from "../shared/shared.module";
 import { TrainingRoutingModule } from "./training-routing.module";
+import { StoreModule } from '@ngrx/store';
+import { trainingReducer } from "./training.reducer";
 
 import { CurrentTrainingComponent } from "./current-training/current-training.component";
 import { StopTrainingComponent } from "./current-training/stop-training.component";
@@ -19,7 +21,8 @@ import { TrainingComponent } from "./training.component";
   ],
   imports: [
     SharedModule,
-    TrainingRoutingModule
+    TrainingRoutingModule,
+    StoreModule.forFeature('training', trainingReducer)
   ],
   entryComponents: [StopTrainingComponent]
 })
